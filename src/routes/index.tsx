@@ -1,205 +1,262 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
-
-import { allSpeakers, allTalks } from 'content-collections'
-
-import SpeakerCard from '#/components/SpeakerCard'
-import TalkCard from '#/components/TalkCard'
-import RemyAssistant from '#/components/RemyAssistant'
-import HeroCarousel from '#/components/HeroCarousel'
+import { Link, createFileRoute } from '@tanstack/react-router'
+import {
+  ArrowDownRight,
+  ArrowRight,
+  Check,
+  Cloud,
+  HeartHandshake,
+  Layers3,
+  Sparkles,
+  Store,
+} from 'lucide-react'
 
 export const Route = createFileRoute('/')({
+  head: () => ({
+    meta: [
+      { title: 'Haaflah 2026 | Build for real businesses' },
+      {
+        name: 'description',
+        content:
+          'Haaflah is a Hacktoberfest programme for building open source products, training developers, and shipping real SME solutions.',
+      },
+    ],
+  }),
   component: HomePage,
 })
 
+const sprintWeeks = [
+  ['01', 'Foundations', 'Git workflows, Docker, repo setup, and the contribution guidelines.'],
+  ['02', 'Architecture', 'PRDs, Figma review, database schemas, and core API decisions.'],
+  ['03', 'Core build', 'Intensive coding, frontend-backend integration, and mentor reviews.'],
+  ['04', 'Polish', 'QA triage, regression fixes, responsive checks, and documentation.'],
+  ['05', 'Demo day', 'Cloud deployment, SME onboarding, release tagging, and impact showcase.'],
+]
+
+const productAreas = [
+  {
+    icon: Store,
+    title: 'Customer storefront',
+    copy: 'A responsive catalogue, search, local cart state, one-page checkout, and WhatsApp receipts.',
+  },
+  {
+    icon: Layers3,
+    title: 'Merchant dashboard',
+    copy: 'Inventory management, order fulfilment, customer logs, and revenue analytics for the people running the business.',
+  },
+  {
+    icon: Cloud,
+    title: 'Backend platform',
+    copy: 'Auth, REST or GraphQL, local payment webhooks, and OpenAPI docs that make the whole system portable.',
+  },
+]
+
+const funnelStages = [
+  'Application',
+  'Screening',
+  'Onboarding',
+  'Squad pairing',
+  'Training sprints',
+  'First PR',
+  'Feature sprints',
+  'Demo & review',
+  'Deployment',
+  'SME empowerment',
+]
+
 function HomePage() {
-  const featuredSpeakers = allSpeakers.slice(0, 3)
-  const featuredTalks = allTalks.slice(0, 4)
-
   return (
-    <>
-      <RemyAssistant />
-
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
-        {/* Background carousel */}
-        <HeroCarousel />
-
-        <div className="relative max-w-5xl mx-auto text-center z-10">
-          {/* Event date badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-copper/10 border border-copper/30 text-copper-light text-sm font-medium">
-            <Calendar className="w-4 h-4" />
-            <span>March 15-17, 2026</span>
-            <span className="mx-2 text-copper/40">•</span>
-            <MapPin className="w-4 h-4" />
-            <span>Paris, France</span>
-          </div>
-
-          {/* Main title */}
-          <h1 className="font-display text-6xl md:text-8xl font-bold text-cream mb-6 leading-tight">
-            Haute
-            <span className="block text-gold italic">Pâtisserie</span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-cream/70 font-body max-w-3xl mx-auto mb-10 leading-relaxed">
-            Join the world's most celebrated pastry chefs and master bakers for
-            three extraordinary days of masterclasses, demonstrations, and
-            culinary inspiration.
-          </p>
-
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">
-                {allSpeakers.length}
-              </div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">
-                Master Chefs
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">
-                {allTalks.length}
-              </div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">
-                Sessions
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">3</div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">
-                Days
-              </div>
+    <main className="home-page">
+      <section className="home-hero grain-texture">
+        <div className="home-hero-orbit home-hero-orbit-one" />
+        <div className="home-hero-orbit home-hero-orbit-two" />
+        <div className="home-wrap home-hero-grid">
+          <div className="home-hero-copy">
+            <p className="home-eyebrow home-reveal home-reveal-one">
+              <Sparkles size={15} /> Haaflah 2026 / Hacktoberfest
+            </p>
+            <h1 className="home-reveal home-reveal-two">
+              Build for real businesses.
+              <span>Train real developers.</span>
+              <em>Create open source.</em>
+            </h1>
+            <p className="home-hero-lede home-reveal home-reveal-three">
+              A five-week product incubator for people who want to move from
+              first contribution to software that matters in the real world.
+            </p>
+            <div className="home-actions home-reveal home-reveal-four">
+              <Link to="/register" className="home-primary-action">
+                Join the build <ArrowRight size={17} />
+              </Link>
+              <a href="#open-commerce" className="home-text-action">
+                Meet the product <ArrowDownRight size={17} />
+              </a>
             </div>
           </div>
 
-          {/* CTA buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/speakers"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-copper to-copper-dark text-charcoal font-semibold text-lg transition-all hover:shadow-lg hover:shadow-copper/30 hover:scale-[1.02]"
-            >
-              <Users className="w-5 h-5" />
-              Meet Our Speakers
-            </Link>
-            <Link
-              to="/talks"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-gold/50 text-gold font-semibold text-lg transition-all hover:bg-gold/10 hover:border-gold"
-            >
-              View Sessions
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+          <div className="home-hero-signal home-reveal home-reveal-three">
+            <div className="home-signal-topline">
+              <span className="home-live-dot" /> Programme in motion
+              <span>2026</span>
+            </div>
+            <div className="home-signal-core">
+              <span className="home-signal-label">One open source product</span>
+              <strong>Open<br />Commerce</strong>
+              <span className="home-signal-caption">Self-hosted tools for growing businesses.</span>
+            </div>
+            <div className="home-signal-stats">
+              <span><b>05</b> weeks</span>
+              <span><b>08</b> squad seats</span>
+              <span><b>500+</b> builders</span>
+            </div>
           </div>
         </div>
+        <div className="home-scroll-note"><span /> Scroll to enter the build</div>
       </section>
 
-      {/* Featured Speakers Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-end justify-between mb-12">
-            <div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-cream mb-3">
-                Featured <span className="text-gold italic">Speakers</span>
-              </h2>
-              <p className="text-cream/60 text-lg font-body">
-                Learn from award-winning pastry chefs and master bakers
-              </p>
-            </div>
-            <Link
-              to="/speakers"
-              className="hidden md:inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
-            >
-              View all speakers
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredSpeakers.map((speaker) => (
-              <SpeakerCard key={speaker.slug} speaker={speaker} featured />
-            ))}
-          </div>
-
-          <div className="md:hidden mt-8 text-center">
-            <Link
-              to="/speakers"
-              className="inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
-            >
-              View all speakers
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+      <div className="home-marquee" aria-label="Haaflah programme stages">
+        <div className="home-marquee-track">
+          {[...['Community', 'Learning', 'Building', 'Deployment', 'SME empowerment'], ...['Community', 'Learning', 'Building', 'Deployment', 'SME empowerment']].map((stage, index) => (
+            <span key={`${stage}-${index}`}><i /> {stage}</span>
+          ))}
         </div>
-      </section>
-
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>
 
-      {/* Featured Sessions Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-end justify-between mb-12">
-            <div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-cream mb-3">
-                Featured <span className="text-gold italic">Sessions</span>
-              </h2>
-              <p className="text-cream/60 text-lg font-body">
-                Masterclasses and demonstrations to elevate your craft
-              </p>
-            </div>
-            <Link
-              to="/talks"
-              className="hidden md:inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
-            >
-              View all sessions
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+      <section className="home-section home-manifesto" id="blueprint">
+        <div className="home-wrap home-manifesto-grid">
+          <div className="home-section-heading home-reveal-on-scroll">
+            <p className="home-eyebrow">The reason we gather</p>
+            <h2>Not just a sprint.<br /><span>A software foundry.</span></h2>
           </div>
+          <div className="home-manifesto-copy home-reveal-on-scroll">
+            <p className="home-big-copy">
+              Hacktoberfest becomes a continuous talent pipeline and product
+              incubator, connecting curious people to work that survives past
+              October.
+            </p>
+            <p>
+              We move as one system: community into learning, learning into
+              building, building into deployment, and deployment into useful
+              software for small and medium businesses.
+            </p>
+            <div className="home-rule-list">
+              <span><Check size={15} /> Build with care</span>
+              <span><Check size={15} /> Learn in public</span>
+              <span><Check size={15} /> Ship for someone real</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {featuredTalks.map((talk) => (
-              <TalkCard key={talk.slug} talk={talk} featured />
+      <section className="home-section home-product" id="open-commerce">
+        <div className="home-wrap">
+          <div className="home-product-intro">
+            <div>
+              <p className="home-eyebrow">Flagship product / v1.0.0</p>
+              <h2>Open <i>Commerce</i></h2>
+            </div>
+            <p>
+              A modular, headless, self-hostable commerce suite for SMEs priced
+              out of the SaaS world. Permissive by design.
+            </p>
+          </div>
+          <div className="home-stack-line">
+            <span>Building with</span>
+            <b>Next.js</b><b>Tailwind</b><b>Node / Go</b><b>PostgreSQL</b><b>Redis</b>
+          </div>
+          <div className="home-product-grid">
+            {productAreas.map((area, index) => {
+              const Icon = area.icon
+              return (
+                <article className="home-product-card home-reveal-on-scroll" key={area.title}>
+                  <div className="home-card-index">0{index + 1}</div>
+                  <Icon size={23} strokeWidth={1.5} />
+                  <h3>{area.title}</h3>
+                  <p>{area.copy}</p>
+                  <span className="home-card-arrow"><ArrowRight size={17} /></span>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-funnel">
+        <div className="home-wrap">
+          <div className="home-section-heading home-reveal-on-scroll">
+            <p className="home-eyebrow">The contributor journey</p>
+            <h2>From “I’m curious”<br /><span>to “it’s deployed.”</span></h2>
+          </div>
+          <div className="home-funnel-layout">
+            <p className="home-big-copy home-reveal-on-scroll">
+              Nobody is dropped into a repo and left alone. The programme has
+              a clear ten-stage progression, with squads, mentors, reviews, and
+              real feedback at every turn.
+            </p>
+            <div className="home-funnel-list home-reveal-on-scroll">
+              {funnelStages.map((stage, index) => (
+                <div key={stage} className="home-funnel-stage">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <b>{stage}</b>
+                  {index < funnelStages.length - 1 && <ArrowRight size={15} />}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-sprint">
+        <div className="home-wrap">
+          <div className="home-sprint-heading">
+            <div>
+              <p className="home-eyebrow">Five weeks / one rhythm</p>
+              <h2>Make the work<br /><span>move forward.</span></h2>
+            </div>
+            <p>Monday alignment. Friday integration testing. Sunday PR merge deadline.</p>
+          </div>
+          <div className="home-sprint-list">
+            {sprintWeeks.map(([number, title, copy]) => (
+              <article className="home-sprint-row home-reveal-on-scroll" key={number}>
+                <span className="home-sprint-number">{number}</span>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+                <ArrowRight className="home-sprint-arrow" size={20} />
+              </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="md:hidden mt-8 text-center">
-            <Link
-              to="/talks"
-              className="inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
-            >
-              View all sessions
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+      <section className="home-section home-impact">
+        <div className="home-wrap home-impact-grid">
+          <div className="home-impact-copy">
+            <p className="home-eyebrow">The measure of the work</p>
+            <h2>Impact you<br /><span>can point to.</span></h2>
+            <p>
+              The primary metric is not attendance. It is the number of people
+              transformed into confident, real-world software builders.
+            </p>
+          </div>
+          <div className="home-kpi-grid">
+            <div><strong>500<span>+</span></strong><small>registered participants</small></div>
+            <div><strong>100<span>+</span></strong><small>high-quality PRs</small></div>
+            <div><strong>50<span>+</span></strong><small>first-time contributors</small></div>
+            <div><strong>5<span>+</span></strong><small>SME solutions deployed</small></div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="relative p-12 rounded-3xl bg-gradient-to-br from-card to-charcoal border border-border/50 overflow-hidden">
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-copper/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gold/5 rounded-full blur-3xl" />
-
-            <div className="relative">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-cream mb-4">
-                Ready to Elevate Your Craft?
-              </h2>
-              <p className="text-cream/60 text-lg font-body mb-8 max-w-2xl mx-auto">
-                Join us in Paris for an unforgettable experience with the
-                world's finest pastry artisans.
-              </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/30 text-gold text-sm font-medium">
-                <span>🥐</span>
-                <span>Registration opens January 2026</span>
-              </div>
-            </div>
+      <section className="home-cta home-reveal-on-scroll">
+        <div className="home-wrap home-cta-inner">
+          <div>
+            <p className="home-eyebrow"><HeartHandshake size={15} /> Make room for your work</p>
+            <h2>Bring your curiosity.<br /><i>Leave with a launch.</i></h2>
           </div>
+          <Link to="/register" className="home-primary-action">
+            Register for Haaflah <ArrowRight size={17} />
+          </Link>
         </div>
       </section>
-    </>
+    </main>
   )
 }

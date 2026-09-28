@@ -6,7 +6,9 @@
     "#/*": "./src/*"
   },
   "intent": {
-    "skills": ["*"]
+    "skills": [
+      "*"
+    ]
   },
   "scripts": {
     "dev": "vite dev --port 3000",
@@ -15,6 +17,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/ai": "latest",
     "@tanstack/ai-anthropic": "latest",
