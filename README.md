@@ -24,7 +24,7 @@ The first release is planned to include:
 
 The core technology direction is Next.js, Tailwind CSS, Node.js or Go,
 PostgreSQL, and Redis. The project is intended to use a permissive open-source
-licence such as MIT or Apache 2.0.
+licence such as MIT or Apache 2.0..
 
 ## Programme Model
 
