@@ -17,7 +17,7 @@ export const Route = createFileRoute('/')({
       {
         name: 'description',
         content:
-          'Haaflah is a Hacktoberfest programme for building open source products, training developers, and shipping real SME solutions.',
+          'Haaflah is a programme for building open source products, training developers, and shipping real SME solutions.',
       },
     ],
   }),
@@ -52,7 +52,6 @@ const productAreas = [
 
 const funnelStages = [
   'Application',
-  'Screening',
   'Onboarding',
   'Squad pairing',
   'Training sprints',
@@ -72,7 +71,7 @@ function HomePage() {
         <div className="home-wrap home-hero-grid">
           <div className="home-hero-copy">
             <p className="home-eyebrow home-reveal home-reveal-one">
-              <Sparkles size={15} /> Haaflah 2026 / Hacktoberfest
+              <Sparkles size={15} /> Haaflah 2026
             </p>
             <h1 className="home-reveal home-reveal-two">
               Build for real businesses.
@@ -129,7 +128,7 @@ function HomePage() {
           </div>
           <div className="home-manifesto-copy home-reveal-on-scroll">
             <p className="home-big-copy">
-              Hacktoberfest becomes a continuous talent pipeline and product
+              Haaflah becomes a continuous talent pipeline and product
               incubator, connecting curious people to work that survives past
               October.
             </p>

@@ -123,7 +123,7 @@ function RegisterPage() {
           </Link>
           <div className="register-intro-content">
             <p className="register-kicker">
-              <Sparkles size={15} /> Hacktoberfest 2026
+              <Sparkles size={15} /> Haaflah 2026
             </p>
             <h1>Make something worth gathering for.</h1>
             <p>
@@ -134,7 +134,7 @@ function RegisterPage() {
           <div className="register-intro-footer">
             <span>Registration is open</span>
             <span className="register-footer-dot" />
-            <span>Port Harcourt · October 2026</span>
+            <span>October 2026</span>
           </div>
         </div>
       </section>
@@ -211,6 +211,22 @@ function RegisterPage() {
                   </span>
                 </label>
                 <label className="register-field">
+                  <span>Developer focus <b>*</b></span>
+                  <span className="register-select-wrap">
+                    <select name="developerFocus" required>
+                      <option value="">Choose a focus</option>
+                      <option value="frontend">Frontend and web</option>
+                      <option value="backend">Backend and APIs</option>
+                      <option value="fullstack">Full-stack product building</option>
+                      <option value="devops">DevOps and infrastructure</option>
+                      <option value="data-ai">Data and AI</option>
+                    </select>
+                    <ChevronDown size={17} />
+                  </span>
+                </label>
+              </div>
+              <div className="register-field-grid">
+                <label className="register-field">
                   <span>GitHub username <b>*</b></span>
                   <span className="register-input-with-icon">
                     <Github size={17} />
@@ -233,8 +249,8 @@ function RegisterPage() {
                   <span className="register-select-wrap">
                     <select name="designFocus" required>
                       <option value="">Choose a focus</option>
-                      <option value="product">Product and UX</option>
-                      <option value="visual">Visual and brand</option>
+                      <option value="product">UI/UX</option>
+                      <option value="visual">Graphic Design</option>
                       <option value="motion">Motion and interaction</option>
                       <option value="research">Research and systems</option>
                     </select>
@@ -286,7 +302,7 @@ function RegisterPage() {
           )}
 
           <div className="register-form-footer">
-            <p>We&absp;ll only use your details for Haaflah updates and speaker follow-up.</p>
+            <p>We'll only use your details for Haaflah updates and speaker follow-up.</p>
             <button type="submit" className="register-submit" disabled={isSubmitting}>
               {isSubmitting ? 'Submitting registration...' : 'Submit Registration'}
               {!isSubmitting && <ArrowRight size={17} />}

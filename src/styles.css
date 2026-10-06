@@ -1635,6 +1635,7 @@ code {
   align-items: end;
   gap: 2rem;
   margin: 0 auto;
+  align-items: center;
 }
 
 .site-footer-brand img {
@@ -1642,7 +1643,7 @@ code {
   width: 8rem;
   height: auto;
   margin-bottom: 1rem;
-  mix-blend-mode: screen;
+  /* mix-blend-mode: screen; */
 }
 
 .site-footer-brand p,
@@ -1658,11 +1659,30 @@ code {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  align-self: self-end;
   gap: 0.65rem;
 }
 
 .site-footer-links a {
   color: oklch(0.88 0.02 90);
+}
+
+.site-footer-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid oklch(0.88 0.02 90 / 0.45);
+  border-radius: 0.25rem;
+  color: oklch(0.88 0.02 90);
+  transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.site-footer-social:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .site-footer-note {
