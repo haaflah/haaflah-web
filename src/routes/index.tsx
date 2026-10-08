@@ -51,15 +51,15 @@ const productAreas = [
 ]
 
 const funnelStages = [
-  'Application',
-  'Onboarding',
-  'Squad pairing',
-  'Training sprints',
-  'First PR',
-  'Feature sprints',
-  'Demo & review',
-  'Deployment',
-  'SME empowerment',
+  { title: 'Application', date: 'Oct 10 - Oct 24' },
+  { title: 'Onboarding', date: 'Oct 26' },
+  { title: 'Squad pairing', date: 'Oct 26 - Oct 29' },
+  { title: 'Training sprints', date: 'Weekly' },
+  { title: 'First PR', date: 'Oct 30' },
+  { title: 'Feature sprints' },
+  { title: 'Demo & review' },
+  { title: 'Deployment', date: 'Dec 4' },
+  { title: 'SME empowerment', date: 'Dec 7 - Dec 14' },
 ]
 
 function HomePage() {
@@ -191,15 +191,18 @@ function HomePage() {
               a clear ten-stage progression, with squads, mentors, reviews, and
               real feedback at every turn.
             </p>
-            <div className="home-funnel-list home-reveal-on-scroll">
+            <ol className="home-funnel-list home-reveal-on-scroll">
               {funnelStages.map((stage, index) => (
-                <div key={stage} className="home-funnel-stage">
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <b>{stage}</b>
-                  {index < funnelStages.length - 1 && <ArrowRight size={15} />}
-                </div>
+                <li key={stage.title} className="home-funnel-stage">
+                  <span className="home-funnel-number">{String(index + 1).padStart(2, '0')}</span>
+                  <div className="home-funnel-marker" aria-hidden="true" />
+                  <div className="home-funnel-stage-copy">
+                    <b>{stage.title}</b>
+                    {stage.date && <span>{stage.date}</span>}
+                  </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
       </section>

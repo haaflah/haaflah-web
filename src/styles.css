@@ -1223,32 +1223,68 @@ code {
 }
 
 .home-funnel-list {
-  border-top: 1px solid var(--border);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .home-funnel-stage {
+  position: relative;
   display: grid;
-  grid-template-columns: 2.3rem 1fr auto;
+  grid-template-columns: 2.3rem 1rem 1fr;
   align-items: center;
-  gap: 1rem;
-  min-height: 3.2rem;
-  border-bottom: 1px solid var(--border);
+  gap: .7rem;
+  min-height: 4.8rem;
   color: var(--foreground);
 }
 
-.home-funnel-stage span {
+.home-funnel-stage:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(50% + 0.65rem);
+  bottom: calc(-50% + 0.65rem);
+  left: 3.3rem;
+  width: 1px;
+  background: var(--border);
+}
+
+.home-funnel-number {
   color: var(--primary);
   font-size: 0.76rem;
 }
 
-.home-funnel-stage b {
+.home-funnel-marker {
+  position: relative;
+  z-index: 1;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 0 0.3rem oklch(0.16 0.015 57);
+}
+
+.home-funnel-stage-copy {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.2rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-funnel-stage-copy b {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1rem;
   font-weight: 500;
 }
 
-.home-funnel-stage svg {
+.home-funnel-stage-copy span {
   color: var(--muted-foreground);
+  font-size: 0.9rem;
+  text-align: right;
 }
 
 .home-sprint {
@@ -1759,6 +1795,10 @@ code {
 
 .home-funnel {
   background: oklch(0.945 0.018 90);
+}
+
+.home-funnel-marker {
+  box-shadow: 0 0 0 0.3rem oklch(0.945 0.018 90);
 }
 
 .home-impact {
