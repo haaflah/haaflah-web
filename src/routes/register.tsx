@@ -27,6 +27,37 @@ export const Route = createFileRoute('/register')({
 })
 
 type RegistrationRole = 'developer' | 'designer' | 'other' | 'speaker'
+type DeveloperFocus = 'frontend' | 'backend' | 'fullstack' | 'devops' | 'data-ai'
+
+const languagesByFocus: Record<DeveloperFocus, Array<{ value: string; label: string }>> = {
+  frontend: [
+    { value: 'html-css', label: 'HTML / CSS' },
+    { value: 'reactjs', label: 'ReactJS' },
+    { value: 'react-ts', label: 'ReactJS with TypeScript' },
+    { value: 'typescript', label: 'Next.js' },
+  ],
+  backend: [
+    { value: 'javascript', label: 'Node.js with Express' },
+    { value: 'typescript', label: 'Python FastAPI' },
+    { value: 'python', label: 'NestJS' },
+  ],
+  fullstack: [
+    { value: 'javascript', label: 'JavaScript' },
+    { value: 'typescript', label: 'TypeScript' },
+    { value: 'python', label: 'Python' },
+  ],
+  devops: [
+    { value: 'bash', label: 'Bash' },
+    { value: 'python', label: 'Python' },
+    { value: 'go', label: 'Go' },
+    { value: 'yaml', label: 'YAML' },
+  ],
+  'data-ai': [
+    { value: 'python', label: 'Python' },
+    { value: 'sql', label: 'SQL' },
+    { value: 'r', label: 'R' },
+  ],
+}
 
 const roleOptions: Array<{
   value: RegistrationRole
@@ -62,6 +93,7 @@ const roleOptions: Array<{
 
 function RegisterPage() {
   const [role, setRole] = useState<RegistrationRole>('developer')
+  const [developerFocus, setDeveloperFocus] = useState<DeveloperFocus | ''>('')
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
@@ -213,7 +245,12 @@ function RegisterPage() {
                 <label className="register-field">
                   <span>Developer focus <b>*</b></span>
                   <span className="register-select-wrap">
-                    <select name="developerFocus" required>
+                    <select
+                      name="developerFocus"
+                      value={developerFocus}
+                      onChange={(event) => setDeveloperFocus(event.target.value as DeveloperFocus | '')}
+                      required
+                    >
                       <option value="">Choose a focus</option>
                       <option value="frontend">Frontend and web</option>
                       <option value="backend">Backend and APIs</option>
@@ -224,6 +261,16 @@ function RegisterPage() {
                     <ChevronDown size={17} />
                   </span>
                 </label>
+                {developerFocus && (
+                  <label className="register-field">
+                    <span>Languages and tools <b>*</b></span>
+                    <select name="developerLanguages" required>
+                      {languagesByFocus[developerFocus].map((language) => (
+                        <option key={language.value} value={language.value}>{language.label}</option>
+                      ))}
+                    </select>
+                  </label>
+                )}
               </div>
               <div className="register-field-grid">
                 <label className="register-field">

@@ -234,16 +234,17 @@ function HomePage() {
           <div className="home-impact-copy">
             <p className="home-eyebrow">The measure of the work</p>
             <h2>Impact you<br /><span>can point to.</span></h2>
+            <p className="home-eyebrow">2025 impact snapshot</p>
             <p>
               The primary metric is not attendance. It is the number of people
               transformed into confident, real-world software builders.
             </p>
           </div>
           <div className="home-kpi-grid">
-            <div><strong>500<span>+</span></strong><small>registered participants</small></div>
-            <div><strong>100<span>+</span></strong><small>high-quality PRs</small></div>
-            <div><strong>50<span>+</span></strong><small>first-time contributors</small></div>
-            <div><strong>5<span>+</span></strong><small>SME solutions deployed</small></div>
+            <div><strong>40<span>+</span></strong><small>registered participants</small></div>
+            <div><strong>42<span>+</span></strong><small>high-quality PRs</small></div>
+            <div><strong>10<span>+</span></strong><small>first-time contributors</small></div>
+            <div><strong>1<span>+</span></strong><small>SME solutions deployed</small></div>
           </div>
         </div>
       </section>
