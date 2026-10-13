@@ -200,6 +200,10 @@ code {
   background: var(--background);
 }
 
+.register-page.is-submitted {
+  display: block;
+}
+
 .register-intro {
   position: relative;
   min-height: 720px;
@@ -653,6 +657,13 @@ code {
   color: var(--muted-foreground);
   font-size: 1.2rem;
   line-height: 1.4;
+}
+
+.register-success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
 }
 
 .register-secondary-action {

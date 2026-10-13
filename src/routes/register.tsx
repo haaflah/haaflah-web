@@ -8,6 +8,7 @@ import {
   Code2,
   Github,
   Mic2,
+  MessageCircle,
   Palette,
   Sparkles,
   Users,
@@ -124,8 +125,10 @@ function RegisterPage() {
   }
 
   if (submitted) {
+    const whatsappCommunityUrl = import.meta.env.VITE_WHATSAPP_COMMUNITY_URL
+
     return (
-      <main className="register-page">
+      <main className="register-page is-submitted">
         <section className="register-success grain-texture">
           <div className="register-success-mark">
             <Check size={28} strokeWidth={2.5} />
@@ -136,9 +139,21 @@ function RegisterPage() {
             Thanks for raising your hand for Haaflah 2026. We’ll send the next
             details to your inbox when the program takes shape.
           </p>
-          <Link to="/" className="register-secondary-action">
-            Back to Haaflah <ArrowRight size={16} />
-          </Link>
+          <div className="register-success-actions">
+            {whatsappCommunityUrl && (
+              <a
+                href={whatsappCommunityUrl}
+                className="register-secondary-action register-whatsapp-action"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join the WhatsApp community <MessageCircle size={16} />
+              </a>
+            )}
+            <Link to="/" className="register-secondary-action">
+              Back to Haaflah <ArrowRight size={16} />
+            </Link>
+          </div>
         </section>
       </main>
     )
