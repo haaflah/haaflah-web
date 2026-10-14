@@ -6,7 +6,6 @@ import {
   Cloud,
   HeartHandshake,
   Layers3,
-  Sparkles,
   Store,
 } from 'lucide-react'
 
@@ -71,7 +70,7 @@ function HomePage() {
         <div className="home-wrap home-hero-grid">
           <div className="home-hero-copy">
             <p className="home-eyebrow home-reveal home-reveal-one">
-              <Sparkles size={15} /> Haaflah 2026
+              Haaflah 2026
             </p>
             <h1 className="home-reveal home-reveal-two">
               Build for real businesses.
