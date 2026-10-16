@@ -11,9 +11,9 @@
     ]
   },
   "scripts": {
-    "dev": "vite dev --port 3000",
+    "dev": "node api.js && vite dev --port 3000",
     "generate-routes": "tsr generate",
-    "build": "vite build",
+    "build": "node api.js && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
